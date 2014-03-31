@@ -183,16 +183,29 @@ Fishes.prototype = {
     },
 
 
+    // scroll: function(e) {
+    //     var top = this.fishes_top;
 
+    //     var ofs = $(document).scrollTop() + $(window).height() - $("#tank").offset().top - $("#tank").height();
+    //     if(ofs > 0) {
+    //         top = Math.max(100, this.fishes_top - ofs);
+    //     }
+
+    //     $("#fishes").css({ top: top});
+    // }
     scroll: function(e) {
-        var top = this.fishes_top;
-
-        var ofs = $(document).scrollTop() + $(window).height() - $("#tank").offset().top - $("#tank").height();
-        if(ofs > 0) {
-            top = Math.max(0, this.fishes_top - ofs);
+        if($("#tank").offset().top < $(window).height()) {
+            var ofs = this.fishes_top - $(document).scrollTop();
+        } else {
+            var ofs = $("#tank").offset().top - $(document).scrollTop();
         }
 
-        $("#fishes").css({ top: top});
+        var top = Math.max(70, ofs);
+        top = Math.min(top, this.fishes_top);
+
+        if(top != this.fishes_top) {
+            $("#fishes").css({ top: top});
+        }
     }
 }
 

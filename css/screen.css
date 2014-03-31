@@ -1,6 +1,13 @@
 * {
     padding:0; margin: 0;
 }
+.wrapper{
+    margin: 10px auto;
+    width: 960px;
+}
+.wrapper h1{
+   text-align: center;
+}
 
 #tank {
     width: 325px;
@@ -21,7 +28,6 @@
     background: transparent url(images/rock.png) no-repeat;
 }
 
-
 #fishes {
     z-index: 20;
     position: absolute;
@@ -30,9 +36,6 @@
     width: 325px;
 }
 
-.pushTop{
-    height: 100px;
-}
 .pushBottom{
-    height: 500px;
+    height: 900px;
 }
